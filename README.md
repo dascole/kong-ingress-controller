@@ -1,1 +1,1 @@
-# KIC
+# Kong Ingress Controller
