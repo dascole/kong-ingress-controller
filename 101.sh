@@ -29,7 +29,9 @@ kubectl patch ingress demo -p '{"metadata":{"annotations":{"konghq.com/override"
 kubectl patch service echo -p '{"metadata":{"annotations":{"configuration.konghq.com":"hash-on-ip"}}}' -n cre
 
 
-# Create a plugin, ip restriction
+
+# *************************** PLUGINS ***************************
+# IP RESTRICTION
 kubectl apply -f Plugins/ip-restriction/ip-restriction.yaml -n cre
 
 # Apply the pluging to either the service or the route
@@ -41,6 +43,108 @@ kubectl patch ingress demo -p '{"metadata":{"annotations":{"konghq.com/plugins":
 
 
 
+
+# CORS
+kubectl apply -f Plugins/cors/cors.yaml -n cre
+
+# Apply the pluging to either the service or the route
+# Service
+kubectl patch service echo -p '{"metadata":{"annotations":{"konghq.com/plugins":"cors-plugin"}}}' -n cre
+
+# Route
+kubectl patch ingress demo -p '{"metadata":{"annotations":{"konghq.com/plugins":"cors-plugin"}}}' -n cre
+
+# *************************** /PLUGINS ***************************
+
+
+
+
+# FILE LOG
+kubectl apply -f Plugins/file-log/file-log.yaml -n cre
+
+# Apply the pluging to either the service or the route
+# Service
+kubectl patch service echo -p '{"metadata":{"annotations":{"konghq.com/plugins":"file-log"}}}' -n cre
+
+# Route
+kubectl patch ingress demo -p '{"metadata":{"annotations":{"konghq.com/plugins":"file-log"}}}' -n cre
+
+# *************************** /PLUGINS ***************************
+
+
+
+
+# RATE LIMITING
+kubectl apply -f Plugins/rate-limiting/rate-limiting.yaml -n cre
+
+# Apply the pluging to either the service or the route
+# Service
+kubectl patch service echo -p '{"metadata":{"annotations":{"konghq.com/plugins":"kong-rl-basic"}}}' -n cre
+
+# Route
+kubectl patch ingress demo -p '{"metadata":{"annotations":{"konghq.com/plugins":"kong-rl-basic"}}}' -n cre
+
+# *************************** /PLUGINS ***************************
+
+
+
+
+# REQUEST TERMINATION
+kubectl apply -f Plugins/request-termination/request-termination.yaml -n cre
+
+# Apply the pluging to either the service or the route
+# Service
+kubectl patch service echo -p '{"metadata":{"annotations":{"konghq.com/plugins":"req-term"}}}' -n cre
+
+# Route
+kubectl patch ingress demo -p '{"metadata":{"annotations":{"konghq.com/plugins":"req-term"}}}' -n cre
+
+# *************************** /PLUGINS ***************************
+
+
+
+
+# REQUEST TRANSFORMER
+kubectl apply -f Plugins/request-transformer/request-transformer.yaml -n cre
+
+# Apply the pluging to either the service or the route
+# Service
+kubectl patch service echo -p '{"metadata":{"annotations":{"konghq.com/plugins":"req-transformer"}}}' -n cre
+
+# Route
+kubectl patch ingress demo -p '{"metadata":{"annotations":{"konghq.com/plugins":"req-transformer"}}}' -n cre
+
+# Test ot
+curl --data body-param1=test  10.99.75.49:9999/echo -v
+# *************************** /PLUGINS ***************************
+
+
+
+
+# SERVERLESS - PRE-PLUGIN
+kubectl apply -f Plugins/serverless/pre-plugin.yaml -n cre
+
+# Apply the pluging to either the service or the route
+# Service
+kubectl patch service echo -p '{"metadata":{"annotations":{"konghq.com/plugins":"pre-plugin"}}}' -n cre
+
+# Route
+kubectl patch ingress demo -p '{"metadata":{"annotations":{"konghq.com/plugins":"pre-plugin"}}}' -n cre
+# *************************** /PLUGINS ***************************
+
+
+
+
+# SERVERLESS - POST-PLUGIN
+kubectl apply -f Plugins/serverless/post-plugin.yaml -n cre
+
+# Apply the pluging to either the service or the route
+# Service
+kubectl patch service echo -p '{"metadata":{"annotations":{"konghq.com/plugins":"post-plugin"}}}' -n cre
+
+# Route
+kubectl patch ingress demo -p '{"metadata":{"annotations":{"konghq.com/plugins":"post-plugin"}}}' -n cre
+# *************************** /PLUGINS ***************************
 
 
 

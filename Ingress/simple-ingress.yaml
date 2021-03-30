@@ -14,3 +14,9 @@ spec:
        backend:
          serviceName: echo
          servicePort: 80
+ - http:
+     paths:
+     - path: /httpbin
+       backend:
+         serviceName: httpbin
+         servicePort: 8000
