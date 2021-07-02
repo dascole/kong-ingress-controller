@@ -4,8 +4,6 @@ metadata:
  name: demo
  annotations:
    kubernetes.io/ingress.class: kong
-  #  konghq.com/plugins: ip-route-plugin, cors-plugin
-  #  konghq.com/override: "sample-customization"
 spec:
  rules:
  - http:
@@ -19,4 +17,4 @@ spec:
      - path: /httpbin
        backend:
          serviceName: httpbin
-         servicePort: 8000
+         servicePort: 80
