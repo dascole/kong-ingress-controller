@@ -1,0 +1,20 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongClusterPlugin
+metadata:
+  name: canary-plugin
+  labels:
+    global: "true"
+  annotations:
+    kubernetes.io/ingress.class: kong
+plugin: canary
+config:
+  duration: 3600
+  groups:
+  - group1
+  hash: consumer
+  percentage: 50
+  steps: 1000
+  upstream_fallback: false
+  upstream_host: httpstat.us
+  upstream_port: 80
+  upstream_uri: "/test"

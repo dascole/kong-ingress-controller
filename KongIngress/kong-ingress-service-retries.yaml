@@ -1,0 +1,31 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongIngress
+metadata:
+  name: svc-retries
+proxy: 
+  retries: 20
+  write_timeout: 9000
+  connect_timeout: 9000
+  read_timeout: 9000
+  protocol: https
+  client_certificate: 731f6d57-8198-4cee-98f6-01a2daf4877e
+# route:
+#   methods:
+#    - GET
+#    - POST
+#    - PUT
+#   protocols: 
+#     - http
+#     - https
+#   strip_path: false
+#   https_redirect_status_code: 302
+#   regex_priority: 99
+#   preserve_host: false
+#   path_handling: v1
+#   headers:
+#     server:
+#     - value1
+#   snis:
+#   - daz
+# proxy: 
+#   path: /bar/

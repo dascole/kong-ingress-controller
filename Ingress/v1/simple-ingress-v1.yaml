@@ -9,6 +9,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: v1demo
+  annotations:
+      # konghq.com/plugins: "masa-no-plugin-issue"
 spec:
   ingressClassName: kong
   rules:
@@ -25,6 +27,6 @@ spec:
               number: 80
   defaultBackend:
     service:
-        name: kong
+        name: httpbin
         port: 
             number: 80

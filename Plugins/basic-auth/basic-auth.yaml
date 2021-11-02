@@ -1,13 +1,12 @@
 apiVersion: configuration.konghq.com/v1
 kind: KongClusterPlugin
 metadata:
-  name: kong-rl-basic
+  name: basic-auth-plugin
   labels:
     global: "true"
   annotations:
     kubernetes.io/ingress.class: kong
-config: 
-  minute: 5
-  hour: 10000
-  policy: local
-plugin: rate-limiting
+plugin: basic-auth
+config:
+  anonymous: anonymous-user
+  hide_credentials: true

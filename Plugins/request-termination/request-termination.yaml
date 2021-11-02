@@ -1,7 +1,11 @@
 apiVersion: configuration.konghq.com/v1
-kind: KongPlugin
+kind: KongClusterPlugin
 metadata:
   name: req-term
+  labels:
+    global: "true"
+  annotations:
+    kubernetes.io/ingress.class: kong
 config: 
   status_code: 200
   message: '{"Success": "Thanks for playing spin the Kube"}'

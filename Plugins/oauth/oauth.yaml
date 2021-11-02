@@ -1,0 +1,27 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongClusterPlugin
+metadata:
+  name: oauth
+  annotations:
+    kubernetes.io/ingress.class: kong
+  labels:
+    global: "true"
+config:
+  accept_http_if_already_terminated: false
+  auth_header_name: authorization
+  enable_authorization_code: false
+  enable_client_credentials: true
+  enable_implicit_grant: false
+  enable_password_grant: false
+  global_credentials: false
+  hide_credentials: false
+  mandatory_scope: false
+  persistent_refresh_token: false
+  pkce: lax
+  refresh_token_ttl: 1209600
+  reuse_refresh_token: false
+  scopes:
+  - email
+  token_expiration: 7200
+  provision_key: 9cb23ba5-b830-4e61-9c24-425081a3366b
+plugin: oauth2
