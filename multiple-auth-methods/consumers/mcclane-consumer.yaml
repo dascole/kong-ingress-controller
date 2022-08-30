@@ -1,0 +1,7 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: mcclane
+  annotations:
+    kubernetes.io/ingress.class: kong
+username: mcclane

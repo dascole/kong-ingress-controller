@@ -1,0 +1,9 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: gruber
+  annotations:
+    kubernetes.io/ingress.class: kong
+username: gruber
+credentials: 
+  - apikey

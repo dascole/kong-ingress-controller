@@ -1,0 +1,20 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: openid-connect-example
+  annotations:
+    kubernetes.io/ingress.class: kong
+config: 
+  anonymous: "d2f00cbf-f9f8-4b0e-96da-6383d3d4eb82"
+  auth_methods:
+  - bearer
+  - session
+  issuer: https://accounts.google.com/
+  client_id:
+  - abc
+  client_secret:
+  - "123"
+  session_secret: kongstrong
+  response_mode: form_post
+  consumer_claim: sub
+plugin: openid-connect

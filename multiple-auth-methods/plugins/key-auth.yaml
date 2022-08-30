@@ -1,0 +1,10 @@
+
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: key-auth
+  annotations:
+    kubernetes.io/ingress.class: kong
+plugin: key-auth
+config: 
+  anonymous: "anonymous"
