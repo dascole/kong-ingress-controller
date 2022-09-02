@@ -16,5 +16,6 @@ config:
   - "123"
   session_secret: kongstrong
   response_mode: form_post
-  consumer_claim: sub
+  consumer_claim: 
+    - sub
 plugin: openid-connect
