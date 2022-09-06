@@ -5,7 +5,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: kong
 config: 
-  anonymous: "d2f00cbf-f9f8-4b0e-96da-6383d3d4eb82"
+  anonymous: "04023726-8cef-40dc-836a-1f8a96878b7e"
   auth_methods:
   - bearer
   - session
@@ -17,5 +17,5 @@ config:
   session_secret: kongstrong
   response_mode: form_post
   consumer_claim: 
-    - sub
+    - email
 plugin: openid-connect
