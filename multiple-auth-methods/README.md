@@ -21,7 +21,7 @@ username: xyz@domain.com
    e. Click 'Exchange authorization code for tokens' and an id_token will be returned with an email claim.
    
 5. Test the auth methods for all 3 scenarios
-  a. curl http://\<host\>:\<port\>/anything      						-- should fail 
-  b. curl http://\<host\>:\<port\>/anything?apikey=ABC123				-- should succeed with Key Auth
-  c. curl -H "Authorization: Bearer \<token from step 4e above\> http://\<host\>:\<port\>/anything
+  - curl http://\<host\>:\<port\>/anything      						-- should fail 
+  - curl http://\<host\>:\<port\>/anything?apikey=ABC123				-- should succeed with Key Auth
+  - curl -H "Authorization: Bearer \<token from step 4e above\> http://\<host\>:\<port\>/anything
 
